@@ -5,7 +5,12 @@ const apiTraffic = require('..')
 const axios = require('axios');
 
   
-app.use(apiTraffic({interceptOutbound:true}))
+app.use(apiTraffic({
+                    interceptOutbound : true,
+                    host : "",
+                    token : "",
+                    bucket : ""
+                   }));
 
 app.get('/base', (req, res) => {
     res.send({ message: 'Hello!' });  

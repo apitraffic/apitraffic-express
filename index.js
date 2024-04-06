@@ -8,7 +8,10 @@ const package = require('./package.json');
  * @returns {Function} - apitraffic-express middleware.
  */
 function apiTraffic(options = {
-    interceptOutbound : true
+    interceptOutbound : true,
+    host : "",
+    token : "",
+    bucket : ""
 }){
 
     // Set things up...
@@ -31,8 +34,6 @@ function apiTraffic(options = {
             
             try{
                 const apiTrafficOptions = {
-                    apiToken: process.env.API_TRAFFIC_TOKEN,
-                    bucketSid: process.env.API_TRAFFIC_BUCKET_SID,
                     version: package.version,
                     sdk: package.name                    
                 };

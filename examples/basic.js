@@ -7,9 +7,9 @@ const axios = require('axios');
   
 app.use(apiTraffic({
                     interceptOutbound : true,
-                    host : "",
+                    host : "ingest.dev.apitraffic.io",
                     token : "",
-                    bucket : ""
+                    bucket : "ewioishji0bi"
                    }));
 
 app.get('/base', (req, res) => {

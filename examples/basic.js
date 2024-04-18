@@ -7,9 +7,10 @@ const axios = require('axios');
   
 app.use(apiTraffic({
                     interceptOutbound : true,
-                    host : "ingest.dev.apitraffic.io",
+                    host : "ingest.apitraffic.io",
                     token : "",
-                    bucket : "ewioishji0bi"
+                    bucket : "k1ahxzru7d6z",
+                    debug : true
                    }));
 
 app.get('/base', (req, res) => {
@@ -34,8 +35,8 @@ app.get('/',  async (req, res) => {
 
     } catch (error) {
         // Handle any errors that occur during the fetch
-        console.error('Error fetching data:', error);
-        throw error; // Rethrow the error for further handling if necessary
+        console.error('Error fetching data:', error.message);
+        
     }  
 
 });

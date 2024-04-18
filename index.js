@@ -11,7 +11,8 @@ function apiTraffic(options = {
     interceptOutbound : true,
     host : "",
     token : "",
-    bucket : ""
+    bucket : "",
+    debug : false
 }){
 
     // Set things up...

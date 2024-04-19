@@ -1,10 +1,13 @@
 const express = require('express')
+const bodyParser = require('body-parser')
 const app = express()
 const PORT = 3000
 const apiTraffic = require('..')
 const axios = require('axios');
-
   
+
+app.use(bodyParser.json())
+
 app.use(apiTraffic({
                     interceptOutbound : true,
                     host : "ingest.apitraffic.io",
@@ -17,7 +20,7 @@ app.get('/base', (req, res) => {
     res.send({ message: 'Hello!' });  
 });
 
-app.get('/users/:userId', (req, res) => {
+app.post('/', (req, res) => {
   res.send({ message: 'Hello!' });  
 });
 

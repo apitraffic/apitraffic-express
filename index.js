@@ -33,11 +33,22 @@ function apiTraffic(options = {
 
         res.on('finish', function onceFinish() {
             
+            // this is what we will do if the host is to be skipped...
+            //return next();
+
             try{
                 const apiTrafficOptions = {
                     version: package.version,
                     sdk: package.name                    
                 };
+                
+                let body = null;
+
+                if(req.method.toUpperCase() !== 'GET' && req.method.toUpperCase() !== 'OPTIONS'){
+                    body = JSON.stringify(req.body);
+                }
+
+
                 // TODO: Account for other body types other than JSON...
                 const apiTrafficPayload = {
                     request: {
@@ -46,14 +57,14 @@ function apiTraffic(options = {
                         url : `${req.protocol}://${req.headers['host']}${req.originalUrl}`,
                         method: req.method,
                         headers : req.headers,
-                        body : JSON.stringify(req.body) || null
+                        body : body
                     },
                     response : {
                         headers : res.getHeaders(), 
                         status : res.statusCode,
                         responseTime : utilities.getDuration(requestStartTime),
                         size: res.get('content-length'),
-                        body : JSON.stringify(res.apiTrafficBody)
+                        body : res.apiTrafficBody
                     }
                 };
 

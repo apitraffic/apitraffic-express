@@ -26,7 +26,7 @@ From within your ApiTraffic account you will see real-time requests to your API,
 ## Get Started
 
 1. Sign in to [ApiTraffic](https://app.apitraffic.io).
-2. [Setup the SDK](#install-the-SDK) for your platform.
+2. [Setup the SDK](#install-the-SDK) for your application.
 
 ### Install the SDK
 

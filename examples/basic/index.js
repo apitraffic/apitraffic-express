@@ -18,22 +18,17 @@ app.use(apiTraffic({
                     bucket : "",
                    }));
 
-app.get('/base', (req, res) => {
-    res.send({ message: 'Hello!' });  
+app.get('/', (req, res) => {
+  res.send({ message: 'Hello World!' });  
 });
 
-app.post('/', (req, res) => {
-  res.send({ message: 'Hello!' });  
-});
-
-
-app.get('/',  async (req, res) => {
+app.get('/outbound',  async (req, res) => {
     
     // Use Axios to make a general outbound API call to a third party service...
     try{
       
       // Await the response of the fetch call
-      await axios.get('https://www.boredapi.com/api/activity/')
+      await axios.get('https://thetestrequest.com/authors')
       
       // once the call is complete, build the response...
       res.send({ message: 'Hello with an outbound intercepted call!' });  

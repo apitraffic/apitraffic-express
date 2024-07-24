@@ -20,10 +20,7 @@ function apiTraffic(options = {
        
     return (req, res, next) => {
         
-        const requestReceivedAt = new Date().toISOString();
-
-        // Set the request start time so we can figure out the total request duration...
-        const requestStartTime = process.hrtime();
+        req.ApiTraffic = new utilities.RequestManager();
 
         const originalSend = res.send
         res.send = function sendOverWrite(body) {
@@ -52,7 +49,7 @@ function apiTraffic(options = {
                 // TODO: Account for other body types other than JSON...
                 const apiTrafficPayload = {
                     request: {
-                        received: requestReceivedAt,
+                        received: req.ApiTraffic.requestReceivedAt,
                         ip : req.ip,
                         url : `${req.protocol}://${req.headers['host']}${req.originalUrl}`,
                         method: req.method,
@@ -62,10 +59,11 @@ function apiTraffic(options = {
                     response : {
                         headers : res.getHeaders(), 
                         status : res.statusCode,
-                        responseTime : utilities.getDuration(requestStartTime),
-                        size: res.get('content-length'),
+                        responseTime : utilities.getDuration(req.ApiTraffic.requestStartTime),
                         body : res.apiTrafficBody
-                    }
+                    },
+                    tags : req.ApiTraffic.getTagArray(),
+                    traces : req.ApiTraffic.getTraces()
                 };
 
                 // call the function to log all now...

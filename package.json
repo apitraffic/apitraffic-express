@@ -9,7 +9,7 @@
     "pub-major": "npm version major --force && git push origin master &&  npm publish"
   },
   "dependencies": {
-    "@apitraffic/utilities": "^0.0.10",
+    "@apitraffic/utilities": "^0.0.14",
     "body-parser": "^1.20.2"
   },
   "devDependencies": {
@@ -20,7 +20,7 @@
     "type": "git",
     "url": "git+https://github.com/apitraffic/apitraffic-express.git"
   },
-  "author": "Jason Fill<jason@apitraffic.io>",
+  "author": "ApiTraffic.io <sdk@apitraffic.io>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/apitraffic/apitraffic-express/issues"

@@ -9,6 +9,8 @@
     <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
     <a href="http://docs.apitraffic.io/support/kb/categories" target="_blank" style="color: #59BB7A;">Docs</a>
     <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
+    <a href="#how-apitraffic-works" target="_blank" style="color: #59BB7A;">Sample Application</a>
+    <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>    
     <a href="https://twitter.com/apitraffic" target="_blank" style="color: #59BB7A;">Twitter</a>
 </div>
 <hr />
@@ -61,4 +63,6 @@ These methods are not mutually exclusive, if for whatever reason you need to sen
 | bucket  | API_TRAFFIC_BUCKET  | Yes  | String   | The bucket the data should be sent to when ingested.  |
 | interceptOutbound  | API_TRAFFIC_INTERCEPT_OUTBOUND  |   |  Boolean  |  If outbound requests should be intercepted. This requires node 14 or above. (Default: true)  |
 
+## Sample Application
 
+A working sample has been provided in this repository. [View the README](tree/master/examples/basic) for the sample application for details on how to run it.

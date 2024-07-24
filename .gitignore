@@ -1,7 +1,7 @@
 node_modules/
-.DS_Store
-npm-debug.log
 logs/
 coverage/
-package-lock.json
+.DS_Store
 .npmrc
+**/npm-debug.log
+**/package-lock.json

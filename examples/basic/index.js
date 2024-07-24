@@ -8,7 +8,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 const PORT = 3000;
-const apiTraffic = require('..');
+const apiTraffic = require('@apitraffic/express');
 const axios = require('axios');
   
 app.use(bodyParser.json())

@@ -9,7 +9,7 @@
     <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
     <a href="http://docs.apitraffic.io/support/kb/categories" target="_blank" style="color: #59BB7A;">Docs</a>
     <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
-    <a href="#how-apitraffic-works" target="_blank" style="color: #59BB7A;">Sample Application</a>
+    <a href="#sample-application" target="_blank" style="color: #59BB7A;">Sample Application</a>
     <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>    
     <a href="https://twitter.com/apitraffic" target="_blank" style="color: #59BB7A;">Twitter</a>
 </div>
@@ -65,4 +65,4 @@ These methods are not mutually exclusive, if for whatever reason you need to sen
 
 ## Sample Application
 
-A working sample has been provided in this repository. [View the README](tree/master/examples/basic) for the sample application for details on how to run it.
+A working sample has been provided in this repository. [View the README](https://github.com/apitraffic/apitraffic-express/tree/master/examples/basic) for the sample application for details on how to run it.

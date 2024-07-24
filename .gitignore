@@ -4,3 +4,4 @@ npm-debug.log
 logs/
 coverage/
 package-lock.json
+.npmrc

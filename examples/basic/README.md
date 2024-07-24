@@ -5,6 +5,8 @@
 
 # Sample Application (Express)
 
+Ensure you sign up for an ApiTraffic account prior to running this application. You will need a valid token and bucket ID in order to run the sample application. If you do not already have an account, [create a new account](https://www.apitraffic.io/pricing) to start a free trial. 
+
 ## Run Application
 
 ### Set Environment Variables
@@ -19,14 +21,10 @@ Grab the bucket id from your account. This will be the bucket where there the re
 
 `export API_TRAFFIC_BUCKET=....`
 
-### Install the SDK
+### Install & Start Application
 
 ```sh
 npm install
-```
-
-### Start Application
-```js
 npm start
 ```
 

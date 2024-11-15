@@ -13,29 +13,33 @@ const axios = require('axios');
   
 app.use(bodyParser.json())
 
-app.use(apiTraffic({
-                    token : "",
-                    bucket : "",
-                   }));
+app.use(apiTraffic.middleware());
 
 app.get('/', (req, res) => {
   res.send({ message: 'Hello World!' });  
 });
 
 app.get('/outbound',  async (req, res) => {
-    
     // Use Axios to make a general outbound API call to a third party service...
     try{
       
       // Await the response of the fetch call
-      await axios.get('https://thetestrequest.com/authors')
+      await axios.get('https://thetestrequest.com/authors');
       
+       // tag the request. You can add as many tags to a request as required.
+       apiTraffic.getRequestManager().tag("Account Id", "12345");
+
+       // add some tracing information to the request. You can add as many traces as required, think of it like console log.
+       apiTraffic.getRequestManager().trace("This is a sample trace from the sample ApiTraffic app.");
+
+
       // once the call is complete, build the response...
-      res.send({ message: 'Hello with an outbound intercepted call!' });  
+      res.send({ message: 'Hello World, with an outbound intercepted call!' });  
 
     } catch (error) {
         // Handle any errors that occur during the fetch
         console.error('Error fetching data:', error.message);
+        res.send({ message: error.message });  
         
     }  
 

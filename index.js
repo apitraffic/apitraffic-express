@@ -2,6 +2,16 @@
 const utilities = require('@apitraffic/utilities');
 const package = require('./package.json');
 
+
+module.exports.getContext = function(){
+    return utilities.context.getStore();
+  }
+  
+module.exports.getRequestManager = function(){
+    return utilities.context.getStore().RequestManager;
+}
+
+
 /**
  * ApiTraffic Express middleware function.
  * @param {{interceptOutbound?:boolean}} options - Configuration options.
@@ -16,11 +26,14 @@ function apiTraffic(options = {
 }){
 
     // Set things up...
-    utilities.setup(options);
+    utilities.setup(options, utilities.context);
        
     return (req, res, next) => {
         
-        req.ApiTraffic = new utilities.RequestManager();
+        // make sure the request context is setup with the RequestManager so it can be uses anywhere in the request...
+        utilities.context.enterWith({ 
+            RequestManager: new utilities.RequestManager({package : {name: package.name, version : package.version}})
+        });
 
         const originalSend = res.send
         res.send = function sendOverWrite(body) {
@@ -35,8 +48,8 @@ function apiTraffic(options = {
 
             try{
                 const apiTrafficOptions = {
-                    version: package.version,
-                    sdk: package.name                    
+                    version: utilities.context.getStore().RequestManager.package.version,
+                    sdk: utilities.context.getStore().RequestManager.package.name                   
                 };
                 
                 let body = null;
@@ -48,22 +61,24 @@ function apiTraffic(options = {
 
                 // TODO: Account for other body types other than JSON...
                 const apiTrafficPayload = {
+                    contextSid : utilities.context.getStore().RequestManager.contextSid,
+                    direction : "in",
                     request: {
-                        received: req.ApiTraffic.requestReceivedAt,
+                        received: utilities.context.getStore().RequestManager.requestReceivedAt,
                         ip : req.ip,
                         url : `${req.protocol}://${req.headers['host']}${req.originalUrl}`,
-                        method: req.method,
+                        method: req.method.toUpperCase(),
                         headers : req.headers,
                         body : body
                     },
                     response : {
                         headers : res.getHeaders(), 
                         status : res.statusCode,
-                        responseTime : utilities.getDuration(req.ApiTraffic.requestStartTime),
+                        responseTime : utilities.getDuration(utilities.context.getStore().RequestManager.requestStartTime),
                         body : res.apiTrafficBody
                     },
-                    tags : req.ApiTraffic.getTagArray(),
-                    traces : req.ApiTraffic.getTraces()
+                    tags : utilities.context.getStore().RequestManager.getTagArray(),
+                    traces : utilities.context.getStore().RequestManager.getTraces()
                 };
 
                 // call the function to log all now...
@@ -77,4 +92,4 @@ function apiTraffic(options = {
   };
 
 }
-module.exports = apiTraffic;
+module.exports.middleware = apiTraffic;

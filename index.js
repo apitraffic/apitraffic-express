@@ -11,6 +11,14 @@ module.exports.getRequestManager = function(){
     return utilities.context.getStore().RequestManager;
 }
 
+module.exports.tag = function(key, value){
+    utilities.context.getStore().RequestManager.tag(key, value);
+  }
+  
+module.exports.trace = function(content){
+    utilities.context.getStore().RequestManager.trace(content);
+}
+
 
 /**
  * ApiTraffic Express middleware function.

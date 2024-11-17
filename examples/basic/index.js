@@ -19,22 +19,24 @@ app.get('/', (req, res) => {
   res.send({ message: 'Hello World!' });  
 });
 
-app.get('/outbound',  async (req, res) => {
+app.get('/authors',  async (req, res) => {
     // Use Axios to make a general outbound API call to a third party service...
     try{
       
+      // add some tracing information to the request. You can add as many traces as required, think of it like console log.
+      apiTraffic.trace("This is a sample trace from the sample ApiTraffic app.");
+
       // Await the response of the fetch call
-      await axios.get('https://thetestrequest.com/authors');
+      const response = await axios.get('https://thetestrequest.com/authors');
       
        // tag the request. You can add as many tags to a request as required.
-       apiTraffic.getRequestManager().tag("Account Id", "12345");
+       apiTraffic.tag("Account Id", "12345");
 
-       // add some tracing information to the request. You can add as many traces as required, think of it like console log.
-       apiTraffic.getRequestManager().trace("This is a sample trace from the sample ApiTraffic app.");
-
-
+       // added a bit more tracing to show what can be done.
+       apiTraffic.trace(`${response.data.length} authors were found.`);
+       
       // once the call is complete, build the response...
-      res.send({ message: 'Hello World, with an outbound intercepted call!' });  
+      res.send(response.data);  
 
     } catch (error) {
         // Handle any errors that occur during the fetch

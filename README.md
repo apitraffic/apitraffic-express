@@ -53,6 +53,8 @@ Exclusions can be configured in cases where certain endpoints should not be logg
 npm i @apitraffic/express --save
 ```
 
+> **IMPORTANT**: Node 18+ required.
+
 ### Add Code To Application
 ```js
 const express = require('express');
@@ -78,8 +80,8 @@ These methods are not mutually exclusive, if for whatever reason you need to sen
 |---|---|:---:|---|---|
 | token  | API_TRAFFIC_TOKEN  | Yes  |  String  |  Ingest token provided from your ApiTraffic account.  |
 | bucket  | API_TRAFFIC_BUCKET  | Yes  | String   | The bucket the data should be sent to when ingested.  |
-| interceptOutbound  | API_TRAFFIC_INTERCEPT_OUTBOUND  |   |  Boolean  |  If outbound requests should be intercepted. This requires node 18 or above. (Default: true)  |
-| debug  | API_TRAFFIC_DEBUG  | no  |  String  |  Flag that toggles if the debug output should be added to the console.  |
+| interceptOutbound  | API_TRAFFIC_INTERCEPT_OUTBOUND  | No  |  Boolean  |  If outbound requests should be intercepted. (Default: true)  |
+| debug  | API_TRAFFIC_DEBUG  | No  |  String  |  Flag that toggles if the debug output should be added to the console. (Default: true)  |
 
 ## Tagging & Tracing
 Additional context can be added to requests via the `tag()` and `trace()` functions provided by the ApiTraffic SDK.

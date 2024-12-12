@@ -1,6 +1,6 @@
 {
   "name": "@apitraffic/express",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Express plugin for sending request data to ApiTraffic.",
   "main": "index.js",
   "keywords": [

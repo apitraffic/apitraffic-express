@@ -32,9 +32,15 @@ npm start
 After the application is running you can make a few sample API requests by navigating to the following URLs in your browser.
 
 ### Sample Request without outbound call
-[http://localhost:3000](http://localhost:3000)
+[http://localhost:4000](http://localhost:4000)
 ### Sample request with outbound call
-[http://localhost:3000/outbound](http://localhost:3000/outbound)
+[http://localhost:4000/outbound](http://localhost:4000/outbound)
 
 ## Review Request Data
 After making these requests, return to your All Traffic Stream in the target bucket and you will see requests starting to appear. 
+
+
+app.use(apiTraffic.middleware({
+  token: "",
+  bucket: ""
+}));

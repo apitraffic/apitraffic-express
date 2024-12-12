@@ -1,5 +1,10 @@
 <div align="center">
   <img src="https://app.apitraffic.io/assets/images/apitraffic-logo.svg" height="75"/>
+  <br/>
+  <br/>
+  <img src="https://cdn.apitraffic.io/images/RepositoryMasthead.png"/>
+  <br/>
+  <br/>
 </div>
 <hr />
 <div align="center">
@@ -9,10 +14,13 @@
     <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
     <a href="https://github.com/apitraffic/apitraffic-express/tree/master/examples/basic" target="_blank" style="color: #59BB7A;">Sample Application</a>
     <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>    
-    <a href="https://twitter.com/apitraffic" target="_blank" style="color: #59BB7A;">Twitter</a>
+    <a href="https://x.com/apitraffic" target="_blank" style="color: #59BB7A;">X</a>
+    <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>    
+    <a href="https://apitraffic.io/chat" target="_blank" style="color: #59BB7A;">Discord</a>
 </div>
 <hr />
-
+<br/>
+https://cdn.apitraffic.io/images/RepositoryMasthead.png
 ApiTraffic helps engineering teams save development time so they can ship features faster. 
 
 ## Features
@@ -70,9 +78,9 @@ There are a two different methods for configuring the ApiTraffic SDK:
 1. Parameters passed into the `apiTraffic.middleware()` function
 2. Setting values as environment variables
 
-These methods are not mutually exclusive, if for whatever reason you need to sent some as parameters and some as environment variables, it is ok they can be mixed.
+These methods are not mutually exclusive, if for whatever reason you need to set some as parameters and some as environment variables, it is ok they can be mixed.
 
-> If the same variable is set in both places, the parameters that are passed in will always supercede the environment variables. 
+> If the same variable is set in both places, the parameters that are passed in will always supersede the environment variables. 
 
 #### Options
 
@@ -113,3 +121,25 @@ apiTraffic.trace("Whatever value that needs to be traced.");
 ## Sample Application
 
 A working sample has been provided in this repository. [View the README](https://github.com/apitraffic/apitraffic-express/tree/master/examples/basic) for the sample application for details on how to run it.
+
+## Community
+
+To get started: Star & watch [this repository](https://github.com/apitraffic/apitraffic-express) to stay updated on the latest changes.
+
+Follow us on our [Blog](https://apitraffic.io.blog) and on [X](https://x.com/apitraffic).
+
+Chat with the ApiTraffic team and other memebers on [Discord](https://apitraffic.com/chat) and follow our tutorials and other videos on [YouTube](https://www.youtube.com/@ApiTraffic).
+
+[![ApiTraffic Discord](https://img.shields.io/badge/ApiTraffic%20Discord-Join%20our%20Discord-F3F5FC?labelColor=7289DA&style=for-the-badge&logo=discord&logoColor=F3F5FC&link=https://apitraffic.io/chat)](https://apitraffic.io/chat)
+
+[![ApiTraffic YouTube](https://img.shields.io/badge/ApiTraffic%20YouTube-Subscribe%20on%20YouTube-F3F5FC?labelColor=c4302b&style=for-the-badge&logo=YouTube&logoColor=F3F5FC&link=https://youtube.com/@apitraffic)](https://youtube.com/@apitraffic)
+
+[![ApiTraffic on X](https://img.shields.io/badge/ApiTraffic%20on%20X-Follow%20Us-F3F5FC?labelColor=000000&style=for-the-badge&logo=X&logoColor=F3F5FC&link=https://twitter.com/apitraffic)](https://x.com/apitraffic)
+
+### How to contribute
+
+Here are some ways you can help improve ApiTraffic:
+
+- Give [ApiTraffic a try](https://docs.apitraffic.io) and share your feedback to help make ApiTraffic even better for you. Feel free to reach out to us on [Discord](https://apitraffic.com/chat)!
+- Join our [Discord](https://apitraffic.com/chat) to connect with other members, share your experiences, and learn from one another.
+- Submit a pull request to any of our [open source repositories](https://github.com/apitraffic). Be sure to review the contribution guide in the repository for detailed instructions on how to get started. We’re excited to see your contributions!
